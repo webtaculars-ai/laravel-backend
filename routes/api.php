@@ -6,6 +6,10 @@ use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\ProjectController;
 use App\Http\Controllers\API\TimesheetController;
 
+Route::get('/test', function() {
+    return response()->json(['message' => 'API is working']);
+});
+
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -15,21 +19,21 @@ Route::middleware('auth:sanctum')->group(function () {
     // User routes
     Route::post('/user', [UserController::class, 'create']);
     Route::get('/user/{id}', [UserController::class, 'show']);
-    Route::get('/user', [UserController::class, 'index']);
-    Route::post('/user/update', [UserController::class, 'update']);
-    Route::post('/user/delete', [UserController::class, 'delete']);
+    Route::get('/users', [UserController::class, 'index']);
+    Route::put('/user/{id}', [UserController::class, 'update']);
+    Route::delete('/user/{id}', [UserController::class, 'delete']);
 
     // Project routes
     Route::post('/project', [ProjectController::class, 'create']);
     Route::get('/project/{id}', [ProjectController::class, 'show']);
-    Route::get('/project', [ProjectController::class, 'index']);
-    Route::post('/project/update', [ProjectController::class, 'update']);
-    Route::post('/project/delete', [ProjectController::class, 'delete']);
+    Route::get('/projects', [ProjectController::class, 'index']);
+    Route::put('/project/{id}', [ProjectController::class, 'update']);
+    Route::delete('/project/{id}', [ProjectController::class, 'delete']);
 
     // Timesheet routes
     Route::post('/timesheet', [TimesheetController::class, 'create']);
     Route::get('/timesheet/{id}', [TimesheetController::class, 'show']);
-    Route::get('/timesheet', [TimesheetController::class, 'index']);
-    Route::post('/timesheet/update', [TimesheetController::class, 'update']);
-    Route::post('/timesheet/delete', [TimesheetController::class, 'delete']);
+    Route::get('/timesheets', [TimesheetController::class, 'index']);
+    Route::put('/timesheet/{id}', [TimesheetController::class, 'update']);
+    Route::delete('/timesheet/{id}', [TimesheetController::class, 'delete']);
 });

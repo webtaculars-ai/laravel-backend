@@ -15,4 +15,4 @@ class VerifyCsrfToken extends Middleware
         '/register',
         'api/*' // Ensure that the '/register' and API routes are excluded from CSRF verification
     ];
-    }
+}
