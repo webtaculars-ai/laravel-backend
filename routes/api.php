@@ -6,9 +6,6 @@ use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\ProjectController;
 use App\Http\Controllers\API\TimesheetController;
 
-Route::get('/test', function() {
-    return response()->json(['message' => 'API is working']);
-});
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
